@@ -46,6 +46,7 @@ app.post('/login',
         }
         else{
            console.log("User not exists")
+           // alert
            res.sendStatus(401)
         }
     });
@@ -53,9 +54,9 @@ app.post('/login',
 
     (req, res)=>{
         req.session.loggedIn = true;
-        req.session.Email = newLogin.Email,
+        req.session.Email = newLogin.Email
         console.log(req.session)
-        res.redirect('/dashboard')
+        res.render("dashboard", {email : req.session.Email});
     }
     
 )

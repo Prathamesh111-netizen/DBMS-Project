@@ -20,6 +20,7 @@ router.post('/register', (req, res) => {
         .then((User) => {
             if (User) {
                 console.log("Email present in the database");
+                // alert
             }
             else {
                 console.log("Email not present in the database");
