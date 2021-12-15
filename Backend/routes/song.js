@@ -10,14 +10,8 @@ router.get('/song', (req,res)=>{
         raw: true,
         attributes: ['Song_Title', 'Length']
       }).then ((tuples)=>{
-        // rows = tuples;
-        // res.json(tuples)
-        console.log((tuples))
         res.render("song", { data : tuples,error: false}) 
-      })
-
+      })      
     console.log(rows);
-
 })
-
 export default router;

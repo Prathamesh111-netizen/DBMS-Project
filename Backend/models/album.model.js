@@ -18,7 +18,8 @@ const model = (sequelize, Sequelize) => {
             type: Sequelize.TEXT,
             allowNull: true
         }
-    }, {
+    },
+    {
         freezeTableName: true, timestamps: false
     });
 
