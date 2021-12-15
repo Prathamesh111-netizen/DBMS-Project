@@ -10,7 +10,7 @@ import registrationRouter from "./routes/register.js";
 import loginRouter from "./routes/login.js";
 import logoutRouter from "./routes/logout.js";
 import dashboardRouter from "./routes/dashboard.js";
-import songsRoute from "./routes/song.js"
+import songsRoute from "./routes/song.js";
 
 const app = express();
 const PORT = process.env.PORT || 1000;
