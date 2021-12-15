@@ -1,7 +1,7 @@
 const db = {
     HOST : "localhost",
     USER : "root",
-    PASSWORD : "",
+    PASSWORD : "Karan@mysql",
     DATABASE : "id18019295_dbms"
 };
 
