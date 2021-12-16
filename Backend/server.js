@@ -24,8 +24,8 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
    
-app.get('/', (req,res)=>{
-    res.render("index") 
+app.get('/home', (req,res)=>{
+    res.render("home") 
 })
 
 app.use('/', songsRoute);
@@ -38,7 +38,7 @@ app.use('/', dashboardRouter);
 // setting up server
 app.listen(PORT, (err) => {
     if (err) throw err;
-    else console.log(`Server started at ${PORT} `);
+    else console.log(`Server started on  http://localhost:${PORT}/home `);
 });
 
 // connection to the database
@@ -49,16 +49,5 @@ db.sequelize.authenticate().then(() => {
 });
 
 // synchronizing model and tables
-await db.sequelize.sync({ force: false });
-console.log("All models were synchronized successfully.");
- 
-
-
-
-
-
-
-
-
-
-
+// await db.sequelize.sync({ force: false });
+// console.log("All models were synchronized successfully.");
