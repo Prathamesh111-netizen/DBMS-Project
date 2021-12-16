@@ -18,10 +18,12 @@ app.use(session({
 var newLogin;
 
 app.get('/login', (req, res) => {
-    if("loggedIn" in req.session && req.session.loggedIn == undefined)
-        res.redirect("dashboard");
-    else
-         res.render("login");
+    // if("loggedIn" in req.session && req.session.loggedIn == undefined)
+    //     res.redirect("profile");
+    // else
+    //      res.render("login");
+    var email = req.email;
+    console.log(email);
 })
 
 app.post('/login',
@@ -56,7 +58,7 @@ app.post('/login',
         req.session.loggedIn = true;
         req.session.Email = newLogin.Email
         console.log(req.session)
-        res.render("dashboard", {email : req.session.Email});
+        res.render("profile", {email : req.session.Email, Share_Link : "<iframe src="https://open.spotify.com/embed/track/4evmHXcjt3bTUHD1cvny97?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>"});
     }
     
 )
