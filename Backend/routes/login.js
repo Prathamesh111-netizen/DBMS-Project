@@ -1,66 +1,65 @@
-import bodyParser from "body-parser";
 import express from "express";
 import session from "express-session";
+import cookieParser from "cookie-parser";
+
 import db from "../models/index.js";
 
 // const router = express.Router();
 const user = db.user;
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.set('trust proxy', 1); // trust first proxy
+
+const oneDay = 1000 * 60 * 60 * 24;
 app.use(session({
-  secret: 'DBMSproject',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
+    secret: "thisismysecrctekey",
+    saveUninitialized:true,
+    cookie: { maxAge: oneDay },
+    resave: false 
 }));
 
 var newLogin;
 
 app.get('/login', (req, res) => {
-    // if("loggedIn" in req.session && req.session.loggedIn == undefined)
-    //     res.redirect("profile");
-    // else
-    //      res.render("login");
-    var email = req.email;
-    console.log(email);
+    if ("loggedIn" in req.session && req.session.loggedIn == undefined)
+        res.redirect("/profile");
+    else
+        res.render("login");
 })
 
-app.post('/login',
-    bodyParser.urlencoded(),
+app.post('/login', (req, res,next) => {
 
-    (req, res, next) => {
-    console.log(req.body)
-    newLogin = {
-        Email : req.body.Email,
-        Password : req.body.Password
-    };
-
-    user.findOne({
-        where: {
-            Email: newLogin.Email,
-            Password: newLogin.Password
-        }
-    }).then((User) => {
-        if(User){
-            console.log("User exists")
-            next();
-        }
-        else{
-           console.log("User not exists")
-           // alert
-           res.sendStatus(401)
-        }
-    });
+        console.log(req.body)
+       
+        user.findOne({
+            where: {
+                Email: req.body.Email,
+                Password: req.body.Password
+            }
+        }).then((User) => {
+            if (User) {
+                console.log("User exists");
+                req.session.loggedIn = true;
+                res.render('profile',{Email :req.body.Email})
+                next();
+            }
+            else {
+                console.log("User not exists")
+                res.render("login");
+            }
+        });
 },
+ (req,res)=>{
+    res.redirect('/profile')
+ }
 
-    (req, res)=>{
-        req.session.loggedIn = true;
-        req.session.Email = newLogin.Email
-        console.log(req.session)
-        res.render("profile", {email : req.session.Email, Share_Link : "<iframe src="https://open.spotify.com/embed/track/4evmHXcjt3bTUHD1cvny97?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>"});
-    }
-    
 )
+
+app.get('/logout',(req,res) => {
+    res.redirect('/');
+});
 
 export default app;

@@ -1,11 +1,19 @@
 import express from "express"
 import db from "../models/index.js"
+import session from 'express-session'
 
-const router = express.Router()
+app.use(session({secret: 'mySecret', 
+    resave: false, 
+    saveUninitialized: false}));
 // const song = db.song
 
-router.get('/profile', (req,res)=>{
-    res.send("profile")
+const app = express();
+app.get('/profile', (req,res)=>{
+    res.render("profile", {Email : req.session.Email})
 })
 
-export default router;
+app.post('/profile', (req,res)=>{
+    res.render("profile", {Email : req.session.Email})
+})
+
+export default app;

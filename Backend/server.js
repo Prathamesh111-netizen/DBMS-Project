@@ -8,7 +8,6 @@ import { dirname } from 'path';
 import db from "./models/index.js";
 import registrationRouter from "./routes/register.js";
 import loginRouter from "./routes/login.js";
-import logoutRouter from "./routes/logout.js";
 import dashboardRouter from "./routes/dashboard.js";
 import songsRoute from "./routes/song.js";
 
@@ -16,9 +15,10 @@ const app = express();
 const PORT = process.env.PORT || 1000;
 
 // Parse URL-encoded bodies (as sent by HTML forms)
-app.use(express.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }))
+
 // Parse JSON bodies (as sent by API clients)
-app.use(express.json());
+app.use(bodyParser.json());
 
 // Setting up view engine
 app.set('view engine', 'ejs');
@@ -31,14 +31,13 @@ app.get('/', (req,res)=>{
 app.use('/', songsRoute);
 app.use('/', registrationRouter);
 app.use('/', loginRouter);
-app.use('/', logoutRouter);
 app.use('/', dashboardRouter);
 
 
 // setting up server
 app.listen(PORT, (err) => {
     if (err) throw err;
-    else console.log(`Server started on  http://localhost:${PORT}/home `);
+    else console.log(`Server started on  http://localhost:${PORT}/ `);
 });
 
 // connection to the database
