@@ -1,31 +1,110 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <meta charset="ISO-8859-1" />
-    <title>Login and Registration form example</title>
-    <link rel="stylesheet" type="text/css" href="css/register.css" />
-  </head>
-  <body bgcolor="#E6E6FA">
-    <a href="\">Home</a>
- 
-    <form name="regi" method="post" action="/register">
-      <h2>Registration Form</h2>
 
-      <label for="r3" id="un">Username :</label>
-      <input type="text" name="User_Name" id="r3" /><br />
+<head>
+  <meta charset="ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
 
-      <label for="r5" id="em">Email :</label>
-      <input type="text" name="Email" id="r5" /><br />
 
-      <label for="r4" id="pwd">Password :</label>
-      <input type="password" name="Password" id="r4" /><br />
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
+  <!-- <link rel="stylesheet" href="./login.css"> -->
+  <link rel="stylesheet" href="css/login.css">
+</head>
 
-      <button type="submit" value="Submit" id="button">Register</button>
-      <br><br>
-      <a href="\login">Already registered User?</a>
+<body>
+
+  <div class="section">
+    <div class="container">
+      <div class="row full-height justify-content-center">
+        <div class="col-12 text-center align-self-center py-5">
+          <div class="section pb-5 pt-5 pt-sm-2 text-center">
+            <h6 class="mb-0 pb-3"><span><a href="/login">Log-in</a></span><span><a href="/register">Register</a></span></h6>
+            <!-- <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" /> -->
+            <label for="reg-log"></label>
+            <div class="card-3d-wrap mx-auto">
+              <div class="card-3d-wrapper">
+                <div class="card-front">
+                    <div class="center-wrap">
+                        <div class="section text-center">
+                          <h4 class="mb-4 pb-3">Register</h4>
+                          <form name="regi" method="post" action="/register">
+                            <div class="form-group">
+                              <input type="text" name="User_Name" class="form-style" placeholder="Your Full Name" id="r3"
+                                autocomplete="off">
+                              <i class="input-icon uil uil-user"></i>
+                            </div>
+                            <div class="form-group mt-2">
+                              <input type="text" name="Email" class="form-style" placeholder="Your Email" id="em"
+                                autocomplete="off">
+                              <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-group mt-2">
+                              <input type="password" name="Password" class="form-style" placeholder="Your Password"
+                                id="r4" autocomplete="off">
+                              <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <button type="submit" class="btn mt-4" value="Submit" id="button"><div >submit</div></button>
+                          </form>
+                          <!-- <button type="submit" value="Submit" id="button"><div class="btn mt-4">submit</div></button> -->
+                        </div>
+                      </div>
+                </div>
+                <!-- <div class="card-back">
+                  <div class="center-wrap">
+                    <div class="section text-center">
+                      <h4 class="mb-4 pb-3">Register</h4>
+                      <form name="regi" method="post" action="/register">
+                        <div class="form-group">
+                          <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname"
+                            autocomplete="off">
+                          <i class="input-icon uil uil-user"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input type="email" name="Email" class="form-style" placeholder="Your Email" id="logemail"
+                            autocomplete="off">
+                          <i class="input-icon uil uil-at"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input type="password" name="Password" class="form-style" placeholder="Your Password"
+                            id="logpass" autocomplete="off">
+                          <i class="input-icon uil uil-lock-alt"></i>
+                        </div>
+                      </form>
+                      <button type="submit" value="Submit" id="button"><div class="btn mt-4">submit</div></button>>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div id="container">
+    <form action="login" method="post" id="flogin" action="/login">
+
+      <div class="border-box">
+        <a href="\">Home</a>
+        <h2>Login Form</h2>
+        <label for="uname" id="un">Email:</label>
+        <input type="text" name="Email" placeholder="Enter Username" id="uname"><br />
+
+        <label for="upass" id="ps">Password:</label>
+        <input type="password" name="Password" placeholder="Enter Password" id="upass"><br />
+
+        <button type="submit" value="Login" id="submit">Login</button>
+
+        <a href="/register">New Member</a>
+      </div>
 
     </form>
+  </div> -->
 
-    
-  </body>
+</body>
+
 </html>
