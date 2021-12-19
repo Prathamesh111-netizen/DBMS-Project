@@ -16,11 +16,12 @@ router.post('/register', (req, res) => {
     }
     console.log(newUser)
     let msg;
+    if(newUser.Email && newUser.Password && newUser.User_Name)
+    {
     user.findOne({ where: { Email: newUser.Email } })
         .then((User) => {
             if (User) {
-                console.log("Email present in the database");
-                // alert
+                res.send("Email present in the database")
             }
             else {
                 console.log("Email not present in the database");
@@ -29,9 +30,13 @@ router.post('/register', (req, res) => {
                     Email: req.body.Email,
                     Password: req.body.Password
                 });
-                res.render("login");
+                res.render("register");
             }
-        })
+        });
+    }
+    else{
+        res.send("Please insert the proper details");
+    }
 });
 
 

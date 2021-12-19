@@ -18,7 +18,7 @@ app.use(session({
 var newLogin;
 
 app.get('/login', (req, res) => {
-    if("loggedIn" in req.session && req.session.loggedIn == undefined)
+    if("loggedIn" in req.session && req.session.loggedIn == true)
         res.redirect("dashboard");
     else
          res.render("login");
@@ -42,6 +42,7 @@ app.post('/login',
     }).then((User) => {
         if(User){
             console.log("User exists")
+            req.session.User_Name= User.User_Name;
             next();
         }
         else{
@@ -56,7 +57,7 @@ app.post('/login',
         req.session.loggedIn = true;
         req.session.Email = newLogin.Email
         console.log(req.session)
-        res.render("dashboard", {email : req.session.Email});
+        res.render("dashboard", {email :  req.session.User_Name});
     }
     
 )
