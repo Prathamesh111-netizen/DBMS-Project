@@ -26,6 +26,7 @@ router.post('/register', (req, res) => {
             else {
                 console.log("Email not present in the database");
                 user.create({
+                    // User_ID : '2',
                     User_Name: req.body.User_Name,
                     Email: req.body.Email,
                     Password: req.body.Password

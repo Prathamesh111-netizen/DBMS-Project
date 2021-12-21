@@ -1,46 +1,139 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Liked songs</title>
-    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
-    <link rel="stylesheet" href="./navbar.css">
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<nav class="navbar navbar-expand-custom navbar-mainbg">
-    <a class="navbar-brand navbar-logo" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <i class="fas fa-bars text-white"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-            <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-            <li class="nav-item">
-                <a class="nav-link" href="table.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="profile.html"><i class="far fa-address-book"></i>My Profile</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="likes.html"><i class="far fa-clone"></i>My Likes/Reviews</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.html"><i class="far fa-calendar-alt"></i>Log-out</a>
-            </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
-            </li> -->
-        </ul>
-    </div>
-</nav>
-<!-- partial -->
-<script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
-<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
-<script  src="./navbar.js"></script>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Musical-Z</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.google.com/icons?selected=Material%20Icons%3Aplay_arrow%3A"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+    />
+    <!-- <link rel="stylesheet" href="css/profile.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"
+    />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <style></style>
+  </head>
 
-</body>
+  <body oncontextmenu="return false" class="snippet-body">
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"
+    ></script>
+
+    <nav class="navbar navbar-expand-custom navbar-mainbg">
+      <a class="navbar-brand navbar-logo" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars text-white"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <div class="hori-selector">
+            <div class="left"></div>
+            <div class="right"></div>
+          </div>
+          <li class="nav-item">
+            <a class="nav-link" href="/song"><i class=""></i>Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard"><i class=""></i>My Profile</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="3"><i></i>Likes/Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/"><i></i>Log-out</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- partial -->
+    <script src="js/navbar.js"></script>
+   
+    <br /><br />
+    <div class="container">
+      <table
+        id="example"
+        class="table table-striped table-bordered"
+        style="width: 100%"
+      >
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Playlist_Name</th>
+            <th>User_Name</th>
+            <th>Song_Title</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% if(data.length){ for(var i = 0;i < data.length;i++) { %>
+          <tr class="tupleentry">
+            <td><%=data[i].Playlist_ID%></td>
+            <td><%=data[i].Playlist_Name%></td>
+            <td><%=data[i].User_Name%></td>
+            <td><%=data[i].Song_Title%></td>
+          </tr>
+          <% } }else{ %>
+          <tr>
+            <td colspan="3">No data</td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"
+    ></script>
+    <script type="text/javascript" src=""></script>
+    <script type="text/javascript" src=""></script>
+    <script type="text/Javascript">
+      $(document).ready(function() {
+      $('#example').DataTable();});
+    </script>
+    <script>
+     function playsong(Share_Link){
+        var songplaying = document.getElementById(playframe);
+        playframe.src = Share_Link;
+      }
+    </script>
+  </body>
+</html>

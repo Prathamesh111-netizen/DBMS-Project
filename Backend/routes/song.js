@@ -8,7 +8,7 @@ router.get('/song', (req,res)=>{
     var rows;
     song.findAll({
         raw: true,
-        attributes: ['Song_Title', 'Length']
+        attributes: ['Song_Title', 'Length', 'Genre', 'Language', 'Share_Link']
       }).then ((tuples)=>{
         res.render("song", { data : tuples,error: false}) 
       })      

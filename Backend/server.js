@@ -11,6 +11,7 @@ import loginRouter from "./routes/login.js";
 import logoutRouter from "./routes/logout.js";
 import dashboardRouter from "./routes/dashboard.js";
 import songsRoute from "./routes/song.js";
+import likesRoute from "./routes/likes.js";
 
 const app = express();
 const PORT = process.env.PORT || 1000;
@@ -34,6 +35,7 @@ app.use('/', registrationRouter);
 app.use('/', loginRouter);
 app.use('/', logoutRouter);
 app.use('/', dashboardRouter);
+app.use('/', likesRoute);
 
 
 // setting up server
@@ -50,5 +52,5 @@ db.sequelize.authenticate().then(() => {
 });
 
 // synchronizing model and tables
-// await db.sequelize.sync({ force: false });
-// console.log("All models were synchronized successfully.");
+await db.sequelize.sync({ force: false });
+console.log("All models were synchronized successfully.");

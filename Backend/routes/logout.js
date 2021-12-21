@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/', (req, res)=>{
     // req.session.destroy();
-    res.render("index")
+    res.render("home")
 });
 
 export default router;
