@@ -38,7 +38,22 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"
     />
     <link rel="stylesheet" href="css/navbar.css" />
-    <style></style>
+    <style>
+      .textbox {
+        -moz-border-radius-topright: 30px;
+        -webkit-border-top-right-radius: 30px;
+        border-top-right-radius: 30px;
+        -moz-border-radius-bottomleft: 30px;
+        -webkit-border-bottom-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        border: 1px solid #848484;
+        outline:0;
+        height:25px;
+        width: 100px;
+        padding-right:15px;
+        padding-left:15px;
+      }
+      </style>
   </head>
 
   <body oncontextmenu="return false" class="snippet-body">
@@ -153,10 +168,10 @@
               >
 
               <form action="/song" method="post">
-                <input type="text" name = "Playlist_ID" placeholder="Playlist" size="8">
-                <input type="text" name = "User_ID" placeholder="User" size="8">
-                <input type="text" name = "Song_ID" placeholder="Song" size="8">
-                <input type="text" name = "Playlist_Name" placeholder="Name" size="8">
+                <input class="textbox"  type="text" name = "Playlist_ID" placeholder="Playlist" size="8">
+                <input class="textbox"  type="text" name = "User_ID" placeholder="User" size="8">
+                <input class="textbox"  type="text" name = "Song_ID" placeholder="Song" size="8">
+                <input class="textbox"  type="text" name = "Playlist_Name" placeholder="Name" size="8">
                 <button type="submit" value = "Add" style="border:none;">
                   <i class="material-icons">&#xE02E;</i></button>
               </form>
@@ -166,14 +181,14 @@
               >
 
               <form action="/song" method="post">
-                <input type="text" name = "Song_ID" placeholder="Input Song Id" size="10">
+                <input type="text"  class="textbox"  name = "Song_ID" placeholder="Input Song Id" style = "width : 150px;">
               <button type="submit" value = "like" style="border:none;"><i class="material-icons">&#xE8DC;</i></button>
               <!-- <button type="submit"  value = "dislike" style="border:none;"><i class="material-icons">&#xE8DB;</i></button> -->
 
             </form>
-              <a href="#" class="delete" title="Comment" data-toggle="tooltip"
+              <!-- <a href="#" class="delete" title="Comment" data-toggle="tooltip"
                 ><i class="material-icons">&#xE3C9;</i></a
-              >
+              > -->
             </td>
           </tr>
           <% } }else{ %>
