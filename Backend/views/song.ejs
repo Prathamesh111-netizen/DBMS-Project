@@ -75,7 +75,7 @@
             <a class="nav-link" href="/dashboard"><i class=""></i>My Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/likes"><i></i>My Likes/Reviews</a>
+            <a class="nav-link" href="/likes"><i></i>Information Zone</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/"><i></i>Log-out</a>
@@ -151,15 +151,26 @@
               <a onclick="playsong('<%=data[i].Share_Link%>')" href="#" class="view" title="Play song" data-toggle="tooltip"
                 ><i class="material-icons">&#xE039;</i></a
               >
+
+              <form action="/song" method="post">
+                <input type="text" name = "Playlist_ID" placeholder="Playlist" size="8">
+                <input type="text" name = "User_ID" placeholder="User" size="8">
+                <input type="text" name = "Song_ID" placeholder="Song" size="8">
+                <input type="text" name = "Playlist_Name" placeholder="Name" size="8">
+                <button type="submit" value = "Add" style="border:none;">
+                  <i class="material-icons">&#xE02E;</i></button>
+              </form>
+
               <a href="#" class="edit" title="Add to Playlist" data-toggle="tooltip"
-                ><i class="material-icons">&#xE02E;</i></a
+                ></a
               >
-              <a href="#" class="delete" title="Like" data-toggle="tooltip"
-                ><i class="material-icons">&#xE8DC;</i></a
-              >
-              <a href="#" class="delete" title="Dislike" data-toggle="tooltip"
-                ><i class="material-icons">&#xE8DB;</i></a
-              >
+
+              <form action="/song" method="post">
+                <input type="text" name = "Song_ID" placeholder="Input Song Id" size="10">
+              <button type="submit" value = "like" style="border:none;"><i class="material-icons">&#xE8DC;</i></button>
+              <!-- <button type="submit"  value = "dislike" style="border:none;"><i class="material-icons">&#xE8DB;</i></button> -->
+
+            </form>
               <a href="#" class="delete" title="Comment" data-toggle="tooltip"
                 ><i class="material-icons">&#xE3C9;</i></a
               >

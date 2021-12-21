@@ -3,7 +3,8 @@ const model = (sequelize, Sequelize) => {
         ID: {
             type: Sequelize.INTEGER,
             primaryKey: true,
-            allowNull: false
+            allowNull: false,
+            autoIncrement: true
         },
         Playlist_ID: {
             type: Sequelize.INTEGER,
