@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Dec 13, 2021 at 06:37 PM
--- Server version: 10.5.12-MariaDB
--- PHP Version: 7.3.32
+-- Host: 127.0.0.1
+-- Generation Time: Dec 21, 2021 at 08:20 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,15 +20,16 @@ SET time_zone = "+00:00";
 --
 -- Database: `id18019295_dbms`
 --
-create database id18019295_dbms;
-use id18019295_dbms;
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Album`
+-- Table structure for table `album`
 --
+create database `id18019295_dbms`;
+use `id18019295_dbms`;
 
-CREATE TABLE `Album` (
+CREATE TABLE `album` (
   `Album_ID` int(11) NOT NULL,
   `Album_Name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `Description` text COLLATE utf8_unicode_ci NOT NULL,
@@ -37,10 +37,10 @@ CREATE TABLE `Album` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `Album`
+-- Dumping data for table `album`
 --
 
-INSERT INTO `Album` (`Album_ID`, `Album_Name`, `Description`, `Spotify_Album_Link`) VALUES
+INSERT INTO `album` (`Album_ID`, `Album_Name`, `Description`, `Spotify_Album_Link`) VALUES
 (1, 'Solo-Songs', 'Single Song Project', ''),
 (2, 'Thank You EP', 'The song were written by Sheeran and Amy Wadge and were self-released.', ''),
 (3, 'No.6 Collaborations Project', 'The track list includes 15 tracks, a departure from his previous three studio albums, which each consisted of 12 tracks', ''),
@@ -57,10 +57,10 @@ INSERT INTO `Album` (`Album_ID`, `Album_Name`, `Description`, `Spotify_Album_Lin
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Artist`
+-- Table structure for table `artist`
 --
 
-CREATE TABLE `Artist` (
+CREATE TABLE `artist` (
   `Artist_ID` int(11) NOT NULL,
   `Artist_Name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `Artist_Details` text COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -68,10 +68,10 @@ CREATE TABLE `Artist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `Artist`
+-- Dumping data for table `artist`
 --
 
-INSERT INTO `Artist` (`Artist_ID`, `Artist_Name`, `Artist_Details`, `Label_ID`) VALUES
+INSERT INTO `artist` (`Artist_ID`, `Artist_Name`, `Artist_Details`, `Label_ID`) VALUES
 (1, 'Ed sheeran', 'Edward Christopher Sheeran MBE (/ˈʃɪərən/; born 17 February 1991) is an English singer-songwriter. Born in Halifax, West Yorkshire, he was brought up in Framlingham, Suffolk where he began writing songs while in high school. In early 2011, Sheeran independently released the extended play, No. 5 Collaborations Project. He signed with Asylum Records the same year.', 1),
 (2, 'Coldplay', 'Coldplay, British rock group whose melodic piano-driven anthems lifted it to the top of the pop music world in the early 21st century. Coldplay was formed in 1998 at University College, London, with the pairing of pianist-vocalist Chris Martin', 2),
 (3, 'Ruel', 'Ruel Vincent van Dijk (born 29 October 2002), known mononymously as Ruel, is a British-Australian singer and songwriter from Sydney, best known for his singles \"Don\'t Tell Me\", \"Younger\", \"As Long As You Care\" and \"Painkiller\".', 3),
@@ -111,10 +111,10 @@ INSERT INTO `Artist` (`Artist_ID`, `Artist_Name`, `Artist_Details`, `Label_ID`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Decode_Child`
+-- Table structure for table `decode_child`
 --
 
-CREATE TABLE `Decode_Child` (
+CREATE TABLE `decode_child` (
   `Decode_ChildID` int(11) NOT NULL,
   `Decode_MainID` int(11) NOT NULL,
   `TextValue` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -122,53 +122,53 @@ CREATE TABLE `Decode_Child` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `Decode_Child`
+-- Dumping data for table `decode_child`
 --
 
-INSERT INTO `Decode_Child` (`Decode_ChildID`, `Decode_MainID`, `TextValue`, `CreatedOn`) VALUES
-(1, 1, 'Male', '2021-12-04 10:47:42'),
-(2, 1, 'Female', '2021-12-04 10:47:42'),
-(3, 1, 'Other', '2021-12-04 10:47:42'),
-(4, 2, 'Rock', '2021-12-04 10:47:42'),
-(5, 2, 'Classical', '2021-12-04 10:47:42'),
-(6, 2, 'Romantic', '2021-12-04 10:47:42'),
-(7, 2, 'Dance', '2021-12-04 10:47:42'),
-(8, 2, 'Pop', '2021-12-04 10:47:42'),
-(9, 2, 'English', '2021-12-04 10:47:42'),
-(10, 2, 'Marathi', '2021-12-04 10:47:42'),
-(11, 2, 'Gujarathi', '2021-12-04 10:47:42'),
-(12, 2, 'Hindi', '2021-12-04 10:47:42'),
-(13, 2, 'Spanish', '2021-12-04 10:47:42'),
-(14, 2, 'Japanese', '2021-12-04 10:47:42'),
-(15, 2, 'Sanskrit', '2021-12-04 10:47:42'),
-(16, 3, 'Mumbai', '2021-12-04 10:47:42'),
-(17, 3, 'Delhi', '2021-12-04 10:47:42'),
-(18, 3, 'Chennai', '2021-12-04 10:47:42'),
-(19, 3, 'Surat', '2021-12-04 10:47:42'),
-(20, 3, 'Kolkata', '2021-12-04 10:47:42'),
-(21, 4, 'FREE', '2021-12-04 10:47:42'),
-(22, 4, 'Premium Individual', '2021-12-04 10:47:42'),
-(23, 4, 'Premium Duo', '2021-12-04 10:47:42'),
-(24, 4, 'Premium Family', '2021-12-04 10:47:42'),
-(25, 4, 'Premium student', '2021-12-04 10:47:42');
+INSERT INTO `decode_child` (`Decode_ChildID`, `Decode_MainID`, `TextValue`, `CreatedOn`) VALUES
+(1, 1, 'Male', '2021-12-04 05:17:42'),
+(2, 1, 'Female', '2021-12-04 05:17:42'),
+(3, 1, 'Other', '2021-12-04 05:17:42'),
+(4, 2, 'Rock', '2021-12-04 05:17:42'),
+(5, 2, 'Classical', '2021-12-04 05:17:42'),
+(6, 2, 'Romantic', '2021-12-04 05:17:42'),
+(7, 2, 'Dance', '2021-12-04 05:17:42'),
+(8, 2, 'Pop', '2021-12-04 05:17:42'),
+(9, 2, 'English', '2021-12-04 05:17:42'),
+(10, 2, 'Marathi', '2021-12-04 05:17:42'),
+(11, 2, 'Gujarathi', '2021-12-04 05:17:42'),
+(12, 2, 'Hindi', '2021-12-04 05:17:42'),
+(13, 2, 'Spanish', '2021-12-04 05:17:42'),
+(14, 2, 'Japanese', '2021-12-04 05:17:42'),
+(15, 2, 'Sanskrit', '2021-12-04 05:17:42'),
+(16, 3, 'Mumbai', '2021-12-04 05:17:42'),
+(17, 3, 'Delhi', '2021-12-04 05:17:42'),
+(18, 3, 'Chennai', '2021-12-04 05:17:42'),
+(19, 3, 'Surat', '2021-12-04 05:17:42'),
+(20, 3, 'Kolkata', '2021-12-04 05:17:42'),
+(21, 4, 'FREE', '2021-12-04 05:17:42'),
+(22, 4, 'Premium Individual', '2021-12-04 05:17:42'),
+(23, 4, 'Premium Duo', '2021-12-04 05:17:42'),
+(24, 4, 'Premium Family', '2021-12-04 05:17:42'),
+(25, 4, 'Premium student', '2021-12-04 05:17:42');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Decode_Main`
+-- Table structure for table `decode_main`
 --
 
-CREATE TABLE `Decode_Main` (
+CREATE TABLE `decode_main` (
   `Decode_MainID` int(11) NOT NULL,
   `FieldName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Description` text COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `Decode_Main`
+-- Dumping data for table `decode_main`
 --
 
-INSERT INTO `Decode_Main` (`Decode_MainID`, `FieldName`, `Description`) VALUES
+INSERT INTO `decode_main` (`Decode_MainID`, `FieldName`, `Description`) VALUES
 (1, 'Genre', 'Information about style,theme,mood of song'),
 (2, 'Language', 'language based diffrentiation of songs, which will be helpful to suggest local songs'),
 (3, 'Location', 'Current Location of user'),
@@ -177,10 +177,10 @@ INSERT INTO `Decode_Main` (`Decode_MainID`, `FieldName`, `Description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Frequency_Heard`
+-- Table structure for table `frequency_heard`
 --
 
-CREATE TABLE `Frequency_Heard` (
+CREATE TABLE `frequency_heard` (
   `F_ID` int(11) NOT NULL,
   `User_ID` int(11) NOT NULL,
   `Song_ID` int(11) NOT NULL,
@@ -188,44 +188,44 @@ CREATE TABLE `Frequency_Heard` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `Frequency_Heard`
+-- Dumping data for table `frequency_heard`
 --
 
-INSERT INTO `Frequency_Heard` (`F_ID`, `User_ID`, `Song_ID`, `Count`) VALUES
+INSERT INTO `frequency_heard` (`F_ID`, `User_ID`, `Song_ID`, `Count`) VALUES
 (1, 1, 1, 2),
 (2, 1, 3, 1),
 (3, 1, 2, 1),
 (4, 1, 1, 1);
 
 --
--- Triggers `Frequency_Heard`
+-- Triggers `frequency_heard`
 --
 DELIMITER $$
-CREATE TRIGGER `increase_frequency_on_insert` AFTER INSERT ON `Frequency_Heard` FOR EACH ROW UPDATE Song set Song.total_views=Song.total_views+1 Where Song_ID=NEW.Song_ID
+CREATE TRIGGER `increase_frequency_on_insert` AFTER INSERT ON `frequency_heard` FOR EACH ROW UPDATE Song set Song.total_views=Song.total_views+1 Where Song_ID=NEW.Song_ID
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `increase_frequency_on_update` AFTER UPDATE ON `Frequency_Heard` FOR EACH ROW UPDATE Song Set total_views=total_views+1 where Song.Song_ID=Frequency_Heard.Song_ID
+CREATE TRIGGER `increase_frequency_on_update` AFTER UPDATE ON `frequency_heard` FOR EACH ROW UPDATE Song Set total_views=total_views+1 where Song.Song_ID=Frequency_Heard.Song_ID
 $$
 DELIMITER ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Label`
+-- Table structure for table `label`
 --
 
-CREATE TABLE `Label` (
+CREATE TABLE `label` (
   `Label_ID` int(11) NOT NULL,
   `Label_Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Contact` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `Label`
+-- Dumping data for table `label`
 --
 
-INSERT INTO `Label` (`Label_ID`, `Label_Name`, `Contact`) VALUES
+INSERT INTO `label` (`Label_ID`, `Label_Name`, `Contact`) VALUES
 (1, 'Sony Music Entertainment', 'press.me@sonymusic.com'),
 (2, 'Universal Publishing Group', 'umpg.royalty@umusic.com'),
 (3, 'Warner Music Group', 'john.doe@wmg.com'),
@@ -245,10 +245,10 @@ INSERT INTO `Label` (`Label_ID`, `Label_Name`, `Contact`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Lyrics`
+-- Table structure for table `lyrics`
 --
 
-CREATE TABLE `Lyrics` (
+CREATE TABLE `lyrics` (
   `Lyrics_ID` int(11) NOT NULL,
   `Song_ID` int(11) NOT NULL,
   `Language` int(11) NOT NULL,
@@ -256,10 +256,10 @@ CREATE TABLE `Lyrics` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `Lyrics`
+-- Dumping data for table `lyrics`
 --
 
-INSERT INTO `Lyrics` (`Lyrics_ID`, `Song_ID`, `Language`, `Lyrics_Text`) VALUES
+INSERT INTO `lyrics` (`Lyrics_ID`, `Song_ID`, `Language`, `Lyrics_Text`) VALUES
 (1, 1, 9, 'We are, we are, we are\r\nL.A. on a Saturday night in the summer\r\nSundown and they all come out\r\nLamborginis and their rented Hummers\r\nThe party\'s on, so they\'re headin\' downtown\r\nEverybody\'s lookin\' for a come up\r\nAnd they wanna know what you\'re about\r\nMe in the middle with the one I\'m lovin\'\r\nWe\'re just tryna figure everything out\r\nWe don\'t fit in well\r\n\'Cause we are just ourselves\r\nI could use some help\r\nGettin\' out of this conversation, yeah\r\nYou look stunning, dear\r\nSo don\'t ask that question here\r\nThis is my only fear, that we become (hey)\r\nBeautiful people\r\nDrop top, designer clothes\r\nFront row at fashion shows\r\n\"What d\'you do?\" and \"Who d\'you know?\"\r\nInside the world of beautiful people\r\nChampagne and rolled-up notes\r\nPrenups and broken homes\r\nSurrounded, but still alone\r\nLet\'s leave the party\r\nThat\'s not who we are\r\n(We are, we are, we are)\r\nWe are not beautiful\r\nYeah, that\'s not who we are\r\n(We are, we are, we are)\r\nWe are not beautiful (beautiful)\r\nL.A. (mmm) drove for hours last night\r\nAnd we made it nowhere (nowhere, nowhere)\r\nI see stars in your eyes\r\nWhen we\'re halfway there (all night)\r\nI\'m not fazed by all them lights\r\nAnd flashin\' cameras\r\n\'Cause with my arms around you\r\nThere\'s no need to care\r\nWe don\'t fit in well\r\nWe are just ourselves\r\nI could use some help\r\nGettin\' out of this conversation, yeah\r\nYou look stunning, dear (ah)\r\nSo don\'t ask that question here\r\nThis is my only fear\r\nThat we become (hey)\r\nBeautiful people\r\nDrop top, designer clothes\r\nFront row at fashion shows\r\n\"What d\'you do?\" and \"Who d\'you know?\"\r\nInside the world of beautiful people\r\nChampagne and rolled-up notes\r\nPrenups and broken homes\r\nSurrounded, but still alone\r\nLet\'s leave the party\r\nThat\'s not who we are\r\n(We are, we are, we are)\r\nWe are not beautiful, yeah\r\nYeah, that\'s not who we are\r\nWe are not beautiful (beautiful)\r\nWe are, we are, we are\r\nWe are not beautiful'),
 (2, 4, 9, 'I\'ll tell you a story before it tells itself\r\nI\'ll lay out all my reasons, you\'ll say that I need help\r\nWe all got expectations, and sometimes they go wrong\r\nBut no one listens to me, so I put it in this song\r\nThey tell me think with my head, not that thing in my chest\r\nThey got their hands at my neck this time\r\nBut you\'re the one that I want, if that\'s really so wrong\r\nThen they don\'t know what this feeling is like\r\nAnd I say yeah-eah\r\nYeah-eah-eah-eah\r\nYeah-eah\r\nYeah-eah-eah-eah\r\nAnd I say yeah-eah\r\nYeah-eah-eah-eah\r\nYeah-eah\r\nYeah-eah-eah-eah\r\nI\'ll tell them a story, they\'ll sit and nod their heads\r\nI tell you all my secrets, and you tell all your friends\r\nHold on to your opinions, and stand by what you said (stand by what you said)\r\nIn the end, it\'s my decision, so it\'s my fault when it ends\r\nThey tell me think with my head, not that thing in my chest\r\nThey got their hands at my neck this time\r\nBut you\'re the one that I want, if that\'s really so wrong\r\nThen they don\'t know what this feeling is like\r\nAnd I say yeah-eah\r\nYeah-eah-eah-eah\r\nYeah-eah\r\nYeah-eah-eah-eah\r\nAnd I say yeah-eah\r\nYeah-eah-eah-eah\r\nYeah-eah\r\nYeah-eah-eah-eah\r\nI\'ll tell you a story before it tells itself\r\nI\'ll lay out all my reasons, you\'ll say that I need help\r\nWe all got expectations, and sometimes they go wrong\r\nBut no one listens to me, so I put it in this song\r\nThey tell me think with my head, not that thing in my chest\r\nThey got their hands at my neck this time\r\nBut you\'re the one that I want, if that\'s really so wrong\r\nThen they don\'t know what this feeling is like\r\nMy friends say no-o, no-o-o\r\nBut they don\'t know\r\nNo-o, no-o-o\r\nYeah, no-o, no-o-o\r\nThey don\'t know\r\nNo-o, no-o-o\r\nNo, no\r\nAnd I say no, oh, oh\r\nAnd I say, yeah, yeah, yeah, yeah\r\nThey don\'t know, oh'),
 (3, 16, 9, 'In your eyes, there\'s a heavy blue\nOne to love and one to lose\nSweet divine, a heavy truth\nWater or wine, don\'t make me choose\nI wanna feel the way that we did that summer night, night\nDrunk on a feeling, alone with the stars in the sky\nI\'ve been running through the jungle\nI\'ve been running with the wolves\nTo get to you, to get to you\nI\'ve been down the darkest alleys\nSaw the dark side of the moon\nTo get to you, to get to you\nI\'ve looked for love in every stranger\nTook too much to ease the anger\nAll for you, yeah, all for you\nI\'ve been running through the jungle\nI\'ve been crying with the wolves\nTo get to you, to get to you (oh to get to you)\nYour fingertips trace my skin\nTo places I have never been\nBlindly, I am following\nBreak down these walls and come on in\nI wanna feel the way that we did that summer night\nDrunk on a feeling, alone with the stars in the sky\nI\'ve been running through the jungle\nI\'ve been running with the wolves\nTo get to you, to get to you\nI\'ve been down the darkest alleys\nSaw the dark side of the moon\nTo get to you, to get to you\nI\'ve looked for love in every stranger\nTook too much to ease the anger\nAll for you, yeah, all for you\nI\'ve been running through the jungle\nI\'ve been crying with the wolves\nTo get to you, to get to you (oh to get to you)\nI\'ve been running through the jungle\nI\'ve been running with the wolves\nTo get to you, to get to you\nI\'ve been down the darkest alleys\nSaw the dark side of the moon\nTo get to you, to get to you\nI\'ve looked for love in every stranger\nTook too much to ease the anger\nAll for you, yeah, all for you\nI\'ve been running through the jungle\nI\'ve been crying with the wolves\nTo get to you, to get to you (oh to get to you)'),
@@ -268,10 +268,10 @@ INSERT INTO `Lyrics` (`Lyrics_ID`, `Song_ID`, `Language`, `Lyrics_Text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `Master_Artist`
+-- Stand-in structure for view `master_artist`
 -- (See below for the actual view)
 --
-CREATE TABLE `Master_Artist` (
+CREATE TABLE `master_artist` (
 `Artist_ID` int(11)
 ,`Artist_Name` varchar(255)
 ,`Artist_Details` text
@@ -281,10 +281,10 @@ CREATE TABLE `Master_Artist` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `Master_decode`
+-- Stand-in structure for view `master_decode`
 -- (See below for the actual view)
 --
-CREATE TABLE `Master_decode` (
+CREATE TABLE `master_decode` (
 `Decode_ChildID` int(11)
 ,`TextValue` varchar(50)
 ,`FieldName` varchar(50)
@@ -294,23 +294,23 @@ CREATE TABLE `Master_decode` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `Master_Playlists`
+-- Stand-in structure for view `master_playlists`
 -- (See below for the actual view)
 --
-CREATE TABLE `Master_Playlists` (
+CREATE TABLE `master_playlists` (
 `Playlist_ID` int(11)
 ,`Playlist_Name` varchar(255)
-,`User_Name` char(255)
+,`User_Name` varchar(255)
 ,`Song_Title` varchar(255)
 );
 
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `Master_Song`
+-- Stand-in structure for view `master_song`
 -- (See below for the actual view)
 --
-CREATE TABLE `Master_Song` (
+CREATE TABLE `master_song` (
 `Song_ID` int(11)
 ,`Song_Title` varchar(255)
 ,`Length` time
@@ -325,33 +325,52 @@ CREATE TABLE `Master_Song` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Playlists`
+-- Table structure for table `playlists`
 --
 
-CREATE TABLE `Playlists` (
+CREATE TABLE `playlists` (
   `Playlist_ID` int(11) NOT NULL,
   `User_ID` int(11) DEFAULT NULL,
   `Playlist_Name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `playlists`
+--
+
+INSERT INTO `playlists` (`Playlist_ID`, `User_ID`, `Playlist_Name`) VALUES
+(1, 1, 'MyLOve'),
+(2, 1, 'havana');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Playlists_song`
+-- Table structure for table `playlists_song`
 --
 
-CREATE TABLE `Playlists_song` (
+CREATE TABLE `playlists_song` (
+  `ID` int(11) NOT NULL,
   `Playlist_ID` int(11) NOT NULL,
-  `Song_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `Song_ID` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `playlists_song`
+--
+
+INSERT INTO `playlists_song` (`ID`, `Playlist_ID`, `Song_ID`) VALUES
+(1, 1, '1'),
+(3, 1, '2'),
+(4, 2, '6');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Review`
+-- Table structure for table `review`
 --
 
-CREATE TABLE `Review` (
+CREATE TABLE `review` (
+  `Review_ID` int(11) NOT NULL,
   `User_ID` int(11) NOT NULL,
   `Song_ID` int(11) NOT NULL,
   `Like` int(11) NOT NULL,
@@ -360,20 +379,20 @@ CREATE TABLE `Review` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Triggers `Review`
+-- Triggers `review`
 --
 DELIMITER $$
-CREATE TRIGGER `LikeDestroy` AFTER DELETE ON `Review` FOR EACH ROW UPDATE Song SET total_likes = total_likes - 1 where Song.Song_ID = old.Song_ID And  old.Like = 1
+CREATE TRIGGER `LikeDestroy` AFTER DELETE ON `review` FOR EACH ROW UPDATE Song SET total_likes = total_likes - 1 where Song.Song_ID = old.Song_ID And  old.Like = 1
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `LikeInsert` AFTER INSERT ON `Review` FOR EACH ROW UPDATE Song 
+CREATE TRIGGER `LikeInsert` AFTER INSERT ON `review` FOR EACH ROW UPDATE Song 
     SET total_likes = total_likes + New.Like
     where Song.Song_ID = new.Song_ID
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `LikeUpdater` AFTER UPDATE ON `Review` FOR EACH ROW UPDATE Song 
+CREATE TRIGGER `LikeUpdater` AFTER UPDATE ON `review` FOR EACH ROW UPDATE Song 
     SET total_likes = total_likes + New.Like
     where Song.Song_ID = new.Song_ID 
     And old.Like <> new.Like 
@@ -381,7 +400,7 @@ CREATE TRIGGER `LikeUpdater` AFTER UPDATE ON `Review` FOR EACH ROW UPDATE Song
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `Likedecrease` AFTER UPDATE ON `Review` FOR EACH ROW UPDATE Song SET total_likes = total_likes - 1
+CREATE TRIGGER `Likedecrease` AFTER UPDATE ON `review` FOR EACH ROW UPDATE Song SET total_likes = total_likes - 1
 where Song.Song_ID = new.Song_ID And old.Like <> new.Like and new.Like = 0
 $$
 DELIMITER ;
@@ -389,10 +408,10 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Song`
+-- Table structure for table `song`
 --
 
-CREATE TABLE `Song` (
+CREATE TABLE `song` (
   `Song_ID` int(11) NOT NULL,
   `Song_Title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `Length` time NOT NULL,
@@ -406,181 +425,184 @@ CREATE TABLE `Song` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `Song`
+-- Dumping data for table `song`
 --
 
-INSERT INTO `Song` (`Song_ID`, `Song_Title`, `Length`, `Album_ID`, `Artist_ID`, `Language`, `Genre`, `Share_Link`, `total_views`, `total_likes`) VALUES
-(1, 'Beautiful People', '03:38:00', 2, 1, 9, 4, '<iframe src=\"https://open.spotify.com/embed/track/4evmHXcjt3bTUHD1cvny97?utm_source=generator\" width=\"100%\" height=\"80\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\"></iframe>', 3, 0),
-(2, 'Painkiller', '04:12:00', 1, 31, 9, 5, '<iframe src=\"https://open.spotify.com/embed/track/0X2MPNwmTDimXylCdDSMnk?utm_source=generator\" width=\"100%\" height=\"380\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\"></iframe>', 1, 0),
-(3, 'Dont you worry child', '03:01:00', 1, 32, 9, 6, '', 1, 0),
-(4, 'This feeling', '03:06:00', 9, 33, 9, 7, '', 0, 0),
-(5, 'Silence', '02:10:00', 10, 14, 9, 8, '', 0, 0),
-(6, 'Malibu', '01:54:00', 1, 35, 9, 7, '', 0, 0),
-(7, 'The real slim shady', '04:30:00', 1, 6, 9, 4, '', 0, 0),
-(8, 'Trampoline', '02:59:00', 10, 7, 9, 4, '', 0, 0),
-(9, 'End of earth', '03:04:00', 7, 8, 9, 5, '', 0, 0),
-(10, 'The nights', '01:11:00', 8, 9, 9, 6, '', 0, 0),
-(11, 'All I Want', '05:20:00', 9, 10, 9, 7, '', 0, 0),
-(12, 'Rinkiya ke papa', '05:54:00', 1, 35, 15, 8, '', 0, 0),
-(13, 'Apocalypse', '04:51:00', 1, 28, 13, 4, '', 0, 0),
-(14, 'Baby Shark', '01:20:00', 10, 11, 9, 5, '<iframe src=\"https://open.spotify.com/embed/track/5ygDXis42ncn6kYG14lEVG?utm_source=generator\" width=\"100%\" height=\"80\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\"></iframe>', 0, 0),
-(15, 'Blinding Lights', '04:23:00', 1, 12, 9, 6, '<iframe src=\"https://open.spotify.com/embed/track/0VjIjW4GlUZAMYd2vXMi3b?utm_source=generator\" width=\"100%\" height=\"80\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\"></iframe>', 0, 0),
-(16, 'Wolves', '02:44:00', 2, 13, 9, 7, '<iframe src=\"https://open.spotify.com/embed/track/0tBbt8CrmxbjRP0pueQkyU?utm_source=generator\" width=\"100%\" height=\"80\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\"></iframe>', 0, 0),
-(17, 'Buddhu Sa Mann', '03:26:00', 1, 15, 12, 8, '<iframe src=\"https://open.spotify.com/embed/track/1dxbiVeiV7nQ2V9qXnhJiB?utm_source=generator\" width=\"100%\" height=\"80\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\"></iframe>', 0, 0),
-(18, 'Love You Zindagi', '03:52:00', 1, 17, 12, 8, '<iframe src=\"https://open.spotify.com/embed/track/6k3XXCE1ZzwevQlxf8dNaw?utm_source=generator\" width=\"100%\" height=\"80\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\"></iframe>', 0, 0),
-(19, 'Agar Tum Sath Ho', '05:41:00', 1, 18, 12, 7, '<iframe src=\"https://open.spotify.com/embed/track/2FCXQHugkoHE1K3tiDu8pu?utm_source=generator\" width=\"100%\" height=\"80\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\"></iframe>', 0, 0),
-(20, 'Mehrama', '04:09:00', 1, 19, 12, 6, '<iframe src=\"https://open.spotify.com/embed/track/3QOkeMwt2pRmjwgB217fqF?utm_source=generator\" width=\"100%\" height=\"80\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\"></iframe>', 0, 0),
-(21, 'I Don\'t Care', '03:37:00', 3, 1, 9, 5, '', 0, 0),
-(22, 'Nancy Mulligan', '02:59:00', 4, 1, 9, 4, '', 0, 0),
-(23, 'Stuck with U', '04:17:00', 1, 20, 9, 4, '', 0, 0),
-(24, '11', '04:16:00', 2, 29, 13, 5, '<iframe src=\"https://open.spotify.com/embed/track/1jnscSecnTBv2cSsKgmJTS?utm_source=generator\" width=\"100%\" height=\"380\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\"></iframe>', 0, 0),
-(25, 'Panchatund Nararundmaladhar', '05:00:00', 1, 22, 15, 6, '', 0, 0),
-(26, 'Blue Bird', '01:30:00', 8, 30, 14, 7, '', 0, 0),
-(27, 'Gangnam Style', '04:12:00', 1, 24, 14, 8, '', 0, 0),
-(28, 'Despacito', '04:41:00', 1, 25, 13, 4, '', 0, 0),
-(29, 'Bella ciao', '02:37:00', 1, 26, 13, 4, '', 0, 0),
-(30, 'Annabelle’s Homework', '03:12:00', 10, 27, 9, 4, '', 0, 0);
+INSERT INTO `song` (`Song_ID`, `Song_Title`, `Length`, `Album_ID`, `Artist_ID`, `Language`, `Genre`, `Share_Link`, `total_views`, `total_likes`) VALUES
+(1, 'Beautiful People', '03:38:00', 2, 1, 9, 4, 'https://open.spotify.com/embed/track/4evmHXcjt3bTUHD1cvny97?utm_source=generator', 3, 8),
+(2, 'Painkiller', '04:12:00', 1, 31, 9, 5, 'https://open.spotify.com/embed/track/0X2MPNwmTDimXylCdDSMnk?utm_source=generator', 1, 1),
+(3, 'Dont you worry child', '03:01:00', 1, 32, 9, 6, 'https://open.spotify.com/embed/track/043bfUkTydw0xJ5JjOT91w?utm_source=generator', 1, 0),
+(4, 'This feeling', '03:06:00', 9, 33, 9, 7, 'https://open.spotify.com/embed/track/4NBTZtAt1F13VvlSKe6KTl?utm_source=generator', 0, 0),
+(5, 'Silence', '02:10:00', 10, 14, 9, 8, 'https://open.spotify.com/embed/track/7vGuf3Y35N4wmASOKLUVVU?utm_source=generator', 0, 0),
+(6, 'Malibu', '01:54:00', 1, 35, 9, 7, 'https://open.spotify.com/embed/track/1UZOjK1BwmwWU14Erba9CZ?utm_source=generator', 0, 0),
+(7, 'The real slim shady', '04:30:00', 1, 6, 9, 4, 'https://open.spotify.com/embed/track/3yfqSUWxFvZELEM4PmlwIR?utm_source=generator', 0, 0),
+(8, 'Trampoline', '02:59:00', 10, 7, 9, 4, 'https://open.spotify.com/embed/track/1iQDltZqI7BXnHrFy4Qo1k?utm_source=generator', 0, 0),
+(9, 'End of earth', '03:04:00', 7, 8, 9, 5, 'https://open.spotify.com/embed/track/4yyg2J2uXOjCtCyT64984C?utm_source=generator', 0, 0),
+(10, 'The nights', '01:11:00', 8, 9, 9, 6, 'https://open.spotify.com/embed/track/0ct6r3EGTcMLPtrXHDvVjc?utm_source=generator', 0, 0),
+(11, 'All I Want', '05:20:00', 9, 10, 9, 7, 'https://open.spotify.com/embed/track/0NlGoUyOJSuSHmngoibVAs?utm_source=generator', 0, 0),
+(12, 'Rinkiya ke papa', '05:54:00', 1, 35, 15, 8, 'https://open.spotify.com/embed/track/1rBvtzCQEQYXKo5KD3liJm?utm_source=generator', 0, 0),
+(13, 'Apocalypse', '04:51:00', 1, 28, 13, 4, 'https://open.spotify.com/embed/track/0yc6Gst2xkRu0eMLeRMGCX?utm_source=generator', 0, 0),
+(14, 'Baby Shark', '01:20:00', 10, 11, 9, 5, 'https://open.spotify.com/embed/track/5ygDXis42ncn6kYG14lEVG?utm_source=generator', 0, 0),
+(15, 'Blinding Lights', '04:23:00', 1, 12, 9, 6, 'https://open.spotify.com/embed/track/0VjIjW4GlUZAMYd2vXMi3b?utm_source=generator', 0, 0),
+(16, 'Wolves', '02:44:00', 2, 13, 9, 7, 'https://open.spotify.com/embed/track/0tBbt8CrmxbjRP0pueQkyU?utm_source=generator', 0, 0),
+(17, 'Buddhu Sa Mann', '03:26:00', 1, 15, 12, 8, 'https://open.spotify.com/embed/track/1dxbiVeiV7nQ2V9qXnhJiB?utm_source=generator', 0, 0),
+(18, 'Love You Zindagi', '03:52:00', 1, 17, 12, 8, 'https://open.spotify.com/embed/track/6k3XXCE1ZzwevQlxf8dNaw?utm_source=generator', 0, 0),
+(19, 'Agar Tum Sath Ho', '05:41:00', 1, 18, 12, 7, 'https://open.spotify.com/embed/track/2FCXQHugkoHE1K3tiDu8pu?utm_source=generator', 0, 0),
+(20, 'Mehrama', '04:09:00', 1, 19, 12, 6, 'https://open.spotify.com/embed/track/3QOkeMwt2pRmjwgB217fqF?utm_source=generator', 0, 0),
+(21, 'I Don\'t Care', '03:37:00', 3, 1, 9, 5, 'https://open.spotify.com/embed/track/0hVXuCcriWRGvwMV1r5Yn9?utm_source=generator', 0, 0),
+(22, 'Nancy Mulligan', '02:59:00', 4, 1, 9, 4, 'https://open.spotify.com/embed/track/35QZaWQRkmnAVqBF1TLCxQ?utm_source=generator', 0, 0),
+(23, 'Stuck with U', '04:17:00', 1, 20, 9, 4, 'https://open.spotify.com/embed/track/4HBZA5flZLE435QTztThqH?utm_source=generator', 0, 0),
+(24, '11', '04:16:00', 2, 29, 13, 5, 'https://open.spotify.com/embed/track/1jnscSecnTBv2cSsKgmJTS?utm_source=generator', 0, 0),
+(25, 'Panchatund Nararundmaladhar', '05:00:00', 1, 22, 15, 6, 'https://open.spotify.com/embed/track/7sVdMNgv1dh2dzNhve8qFm?utm_source=generator', 0, 0),
+(26, 'Blue Bird', '01:30:00', 8, 30, 14, 7, 'https://open.spotify.com/embed/track/1bEnIDpwKsyhDauHVoMz6t?utm_source=generator', 0, 0),
+(27, 'Gangnam Style', '04:12:00', 1, 24, 14, 8, 'https://open.spotify.com/embed/track/03UrZgTINDqvnUMbbIMhql?utm_source=generator', 0, 0),
+(28, 'Despacito', '04:41:00', 1, 25, 13, 4, 'https://open.spotify.com/embed/track/6habFhsOp2NvshLv26DqMb?utm_source=generator', 0, 0),
+(29, 'Bella ciao', '02:37:00', 1, 26, 13, 4, 'https://open.spotify.com/embed/track/3lWzVNe1yFZlkeBBzUuZYu?utm_source=generator', 0, 0),
+(30, 'Annabelle’s Homework', '03:12:00', 10, 27, 9, 4, 'https://open.spotify.com/embed/track/0DYRjWiFJHvLjxRrywtltC?utm_source=generator', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `User`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `User` (
+CREATE TABLE `user` (
   `User_ID` int(11) NOT NULL,
-  `User_Name` char(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `Password` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `Gender` int(20) DEFAULT NULL,
-  `Birthdate` date DEFAULT NULL,
+  `User_Name` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `Password` varchar(255) NOT NULL,
+  `Gender` int(11) DEFAULT NULL,
+  `Birthdate` datetime DEFAULT NULL,
   `Location` int(11) DEFAULT NULL,
   `SubscriptionType` int(11) DEFAULT NULL,
   `Active_Status` int(11) DEFAULT NULL,
-  `Last_Login` timestamp NULL DEFAULT NULL,
+  `Last_Login` timestamp NOT NULL DEFAULT current_timestamp(),
   `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `User`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `User` (`User_ID`, `User_Name`, `Email`, `Password`, `Gender`, `Birthdate`, `Location`, `SubscriptionType`, `Active_Status`, `Last_Login`, `CreatedOn`) VALUES
-(1, 'Karan', 'karan.shah3@spit.ac.in', 'Karan@123', 1, '2021-05-11', NULL, NULL, NULL, NULL, '2021-12-10 05:04:55');
+INSERT INTO `user` (`User_ID`, `User_Name`, `Email`, `Password`, `Gender`, `Birthdate`, `Location`, `SubscriptionType`, `Active_Status`, `Last_Login`, `CreatedOn`) VALUES
+(1, 'Prathamesh', '2002pratham1109@gmail.com', '1234', NULL, NULL, NULL, NULL, NULL, '2021-12-21 06:01:11', '2021-12-21 03:50:40'),
+(2, 'Sharma', 'sharma@gmail.com', '1234', NULL, NULL, NULL, NULL, NULL, '2021-12-21 04:05:30', '2021-12-21 03:51:48'),
+(3, 'Rupali Ma\'am', 'ruplaimaam@spit.ac.in', '1234', NULL, NULL, NULL, NULL, NULL, '2021-12-21 04:38:01', '2021-12-21 04:37:54'),
+(4, 'prat', 'pawa@gmail.com', '1234', NULL, NULL, NULL, NULL, NULL, '2021-12-21 04:39:26', '2021-12-21 04:39:20');
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `Master_Artist`
+-- Structure for view `master_artist`
 --
-DROP TABLE IF EXISTS `Master_Artist`;
+DROP TABLE IF EXISTS `master_artist`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`id18019295_dbmsuser`@`%` SQL SECURITY DEFINER VIEW `Master_Artist`  AS  (select `Artist`.`Artist_ID` AS `Artist_ID`,`Artist`.`Artist_Name` AS `Artist_Name`,`Artist`.`Artist_Details` AS `Artist_Details`,`Label`.`Label_Name` AS `Label_Name` from (`Artist` left join `Label` on(`Artist`.`Label_ID` = `Label`.`Label_ID`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `master_artist`  AS   (select `artist`.`Artist_ID` AS `Artist_ID`,`artist`.`Artist_Name` AS `Artist_Name`,`artist`.`Artist_Details` AS `Artist_Details`,`label`.`Label_Name` AS `Label_Name` from (`artist` left join `label` on(`artist`.`Label_ID` = `label`.`Label_ID`)))  ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `Master_decode`
+-- Structure for view `master_decode`
 --
-DROP TABLE IF EXISTS `Master_decode`;
+DROP TABLE IF EXISTS `master_decode`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`id18019295_dbmsuser`@`%` SQL SECURITY DEFINER VIEW `Master_decode`  AS  select `dc`.`Decode_ChildID` AS `Decode_ChildID`,`dc`.`TextValue` AS `TextValue`,`dm`.`FieldName` AS `FieldName`,`dm`.`Description` AS `Description` from (`Decode_Child` `dc` left join `Decode_Main` `dm` on(`dc`.`Decode_MainID` = `dm`.`Decode_MainID`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `master_decode`  AS SELECT `dc`.`Decode_ChildID` AS `Decode_ChildID`, `dc`.`TextValue` AS `TextValue`, `dm`.`FieldName` AS `FieldName`, `dm`.`Description` AS `Description` FROM (`decode_child` `dc` left join `decode_main` `dm` on(`dc`.`Decode_MainID` = `dm`.`Decode_MainID`)) ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `Master_Playlists`
+-- Structure for view `master_playlists`
 --
-DROP TABLE IF EXISTS `Master_Playlists`;
+DROP TABLE IF EXISTS `master_playlists`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`id18019295_dbmsuser`@`%` SQL SECURITY DEFINER VIEW `Master_Playlists`  AS  select `p`.`Playlist_ID` AS `Playlist_ID`,`p`.`Playlist_Name` AS `Playlist_Name`,`u`.`User_Name` AS `User_Name`,`s`.`Song_Title` AS `Song_Title` from (((`Playlists` `p` left join `User` `u` on(`u`.`User_ID` = `p`.`User_ID`)) left join `Playlists_song` `ps` on(`ps`.`Playlist_ID` = `p`.`Playlist_ID`)) left join `Song` `s` on(`ps`.`Song_ID` = `s`.`Song_ID`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `master_playlists`  AS SELECT `p`.`Playlist_ID` AS `Playlist_ID`, `p`.`Playlist_Name` AS `Playlist_Name`, `u`.`User_Name` AS `User_Name`, `s`.`Song_Title` AS `Song_Title` FROM (((`playlists` `p` left join `user` `u` on(`u`.`User_ID` = `p`.`User_ID`)) left join `playlists_song` `ps` on(`ps`.`Playlist_ID` = `p`.`Playlist_ID`)) left join `song` `s` on(`ps`.`Song_ID` = `s`.`Song_ID`)) ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `Master_Song`
+-- Structure for view `master_song`
 --
-DROP TABLE IF EXISTS `Master_Song`;
+DROP TABLE IF EXISTS `master_song`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`id18019295_dbmsuser`@`%` SQL SECURITY DEFINER VIEW `Master_Song`  AS  (select `s`.`Song_ID` AS `Song_ID`,`s`.`Song_Title` AS `Song_Title`,`s`.`Length` AS `Length`,`a`.`Artist_Name` AS `Artist_Name`,`al`.`Album_Name` AS `Album_Name`,`dc`.`TextValue` AS `Language`,`dcc`.`TextValue` AS `Genre`,`s`.`Share_Link` AS `Share_Link`,`s`.`total_views` AS `Total_views` from ((((`Song` `s` left join `Artist` `a` on(`s`.`Artist_ID` = `a`.`Artist_ID`)) left join `Album` `al` on(`s`.`Album_ID` = `al`.`Album_ID`)) left join `Decode_Child` `dc` on(`s`.`Language` = `dc`.`Decode_ChildID`)) left join `Decode_Child` `dcc` on(`s`.`Genre` = `dcc`.`Decode_ChildID`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `master_song`  AS   (select `s`.`Song_ID` AS `Song_ID`,`s`.`Song_Title` AS `Song_Title`,`s`.`Length` AS `Length`,`a`.`Artist_Name` AS `Artist_Name`,`al`.`Album_Name` AS `Album_Name`,`dc`.`TextValue` AS `Language`,`dcc`.`TextValue` AS `Genre`,`s`.`Share_Link` AS `Share_Link`,`s`.`total_views` AS `Total_views` from ((((`song` `s` left join `artist` `a` on(`s`.`Artist_ID` = `a`.`Artist_ID`)) left join `album` `al` on(`s`.`Album_ID` = `al`.`Album_ID`)) left join `decode_child` `dc` on(`s`.`Language` = `dc`.`Decode_ChildID`)) left join `decode_child` `dcc` on(`s`.`Genre` = `dcc`.`Decode_ChildID`)))  ;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `Album`
+-- Indexes for table `album`
 --
-ALTER TABLE `Album`
+ALTER TABLE `album`
   ADD PRIMARY KEY (`Album_ID`);
 
 --
--- Indexes for table `Artist`
+-- Indexes for table `artist`
 --
-ALTER TABLE `Artist`
+ALTER TABLE `artist`
   ADD PRIMARY KEY (`Artist_ID`),
   ADD KEY `Label_ID` (`Label_ID`);
 
 --
--- Indexes for table `Decode_Child`
+-- Indexes for table `decode_child`
 --
-ALTER TABLE `Decode_Child`
+ALTER TABLE `decode_child`
   ADD PRIMARY KEY (`Decode_ChildID`),
   ADD KEY `Decode_MainID` (`Decode_MainID`);
 
 --
--- Indexes for table `Decode_Main`
+-- Indexes for table `decode_main`
 --
-ALTER TABLE `Decode_Main`
+ALTER TABLE `decode_main`
   ADD PRIMARY KEY (`Decode_MainID`);
 
 --
--- Indexes for table `Frequency_Heard`
+-- Indexes for table `frequency_heard`
 --
-ALTER TABLE `Frequency_Heard`
+ALTER TABLE `frequency_heard`
   ADD PRIMARY KEY (`F_ID`),
   ADD KEY `User_ID` (`User_ID`),
   ADD KEY `Song_ID` (`Song_ID`);
 
 --
--- Indexes for table `Label`
+-- Indexes for table `label`
 --
-ALTER TABLE `Label`
+ALTER TABLE `label`
   ADD PRIMARY KEY (`Label_ID`);
 
 --
--- Indexes for table `Lyrics`
+-- Indexes for table `lyrics`
 --
-ALTER TABLE `Lyrics`
+ALTER TABLE `lyrics`
   ADD PRIMARY KEY (`Lyrics_ID`),
   ADD KEY `Song_ID` (`Song_ID`),
   ADD KEY `Language` (`Language`);
 
 --
--- Indexes for table `Playlists`
+-- Indexes for table `playlists`
 --
-ALTER TABLE `Playlists`
+ALTER TABLE `playlists`
   ADD PRIMARY KEY (`Playlist_ID`),
   ADD KEY `User_ID` (`User_ID`);
 
 --
--- Indexes for table `Playlists_song`
+-- Indexes for table `playlists_song`
 --
-ALTER TABLE `Playlists_song`
-  ADD KEY `Playlist_ID` (`Playlist_ID`),
-  ADD KEY `Song_ID` (`Song_ID`);
+ALTER TABLE `playlists_song`
+  ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `Review`
+-- Indexes for table `review`
 --
-ALTER TABLE `Review`
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`Review_ID`),
   ADD KEY `User_ID` (`User_ID`),
   ADD KEY `Song_ID` (`Song_ID`);
 
 --
--- Indexes for table `Song`
+-- Indexes for table `song`
 --
-ALTER TABLE `Song`
+ALTER TABLE `song`
   ADD PRIMARY KEY (`Song_ID`),
   ADD KEY `Album_ID` (`Album_ID`),
   ADD KEY `Artist_ID` (`Artist_ID`),
@@ -588,144 +610,74 @@ ALTER TABLE `Song`
   ADD KEY `Genre` (`Genre`);
 
 --
--- Indexes for table `User`
+-- Indexes for table `user`
 --
-ALTER TABLE `User`
-  ADD PRIMARY KEY (`User_ID`),
-  ADD KEY `SubscriptionType` (`SubscriptionType`),
-  ADD KEY `Gender` (`Gender`),
-  ADD KEY `Location` (`Location`);
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`User_ID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `Album`
+-- AUTO_INCREMENT for table `album`
 --
-ALTER TABLE `Album`
+ALTER TABLE `album`
   MODIFY `Album_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `Artist`
+-- AUTO_INCREMENT for table `artist`
 --
-ALTER TABLE `Artist`
+ALTER TABLE `artist`
   MODIFY `Artist_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `Decode_Child`
+-- AUTO_INCREMENT for table `decode_child`
 --
-ALTER TABLE `Decode_Child`
+ALTER TABLE `decode_child`
   MODIFY `Decode_ChildID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `Decode_Main`
+-- AUTO_INCREMENT for table `decode_main`
 --
-ALTER TABLE `Decode_Main`
+ALTER TABLE `decode_main`
   MODIFY `Decode_MainID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `Frequency_Heard`
+-- AUTO_INCREMENT for table `frequency_heard`
 --
-ALTER TABLE `Frequency_Heard`
+ALTER TABLE `frequency_heard`
   MODIFY `F_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `Label`
+-- AUTO_INCREMENT for table `label`
 --
-ALTER TABLE `Label`
+ALTER TABLE `label`
   MODIFY `Label_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `Lyrics`
+-- AUTO_INCREMENT for table `lyrics`
 --
-ALTER TABLE `Lyrics`
+ALTER TABLE `lyrics`
   MODIFY `Lyrics_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `Playlists`
+-- AUTO_INCREMENT for table `playlists`
 --
-ALTER TABLE `Playlists`
-  MODIFY `Playlist_ID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `playlists`
+  MODIFY `Playlist_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `Song`
+-- AUTO_INCREMENT for table `playlists_song`
 --
-ALTER TABLE `Song`
-  MODIFY `Song_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+ALTER TABLE `playlists_song`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `User`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `User`
-  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `Artist`
---
-ALTER TABLE `Artist`
-  ADD CONSTRAINT `Artist_ibfk_1` FOREIGN KEY (`Label_ID`) REFERENCES `Label` (`Label_ID`);
-
---
--- Constraints for table `Decode_Child`
---
-ALTER TABLE `Decode_Child`
-  ADD CONSTRAINT `Decode_Child_ibfk_1` FOREIGN KEY (`Decode_MainID`) REFERENCES `Decode_Main` (`Decode_MainID`);
-
---
--- Constraints for table `Frequency_Heard`
---
-ALTER TABLE `Frequency_Heard`
-  ADD CONSTRAINT `Frequency_Heard_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `User` (`User_ID`),
-  ADD CONSTRAINT `Frequency_Heard_ibfk_2` FOREIGN KEY (`Song_ID`) REFERENCES `Song` (`Song_ID`);
-
---
--- Constraints for table `Lyrics`
---
-ALTER TABLE `Lyrics`
-  ADD CONSTRAINT `Lyrics_ibfk_1` FOREIGN KEY (`Song_ID`) REFERENCES `Song` (`Song_ID`),
-  ADD CONSTRAINT `Lyrics_ibfk_2` FOREIGN KEY (`Language`) REFERENCES `Decode_Child` (`Decode_ChildID`);
-
---
--- Constraints for table `Playlists`
---
-ALTER TABLE `Playlists`
-  ADD CONSTRAINT `Playlists_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `User` (`User_ID`);
-
---
--- Constraints for table `Playlists_song`
---
-ALTER TABLE `Playlists_song`
-  ADD CONSTRAINT `Playlists_song_ibfk_1` FOREIGN KEY (`Playlist_ID`) REFERENCES `Playlists` (`Playlist_ID`),
-  ADD CONSTRAINT `Playlists_song_ibfk_2` FOREIGN KEY (`Song_ID`) REFERENCES `Song` (`Song_ID`);
-
---
--- Constraints for table `Review`
---
-ALTER TABLE `Review`
-  ADD CONSTRAINT `Review_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `User` (`User_ID`),
-  ADD CONSTRAINT `Review_ibfk_2` FOREIGN KEY (`Song_ID`) REFERENCES `Song` (`Song_ID`);
-
---
--- Constraints for table `Song`
---
-ALTER TABLE `Song`
-  ADD CONSTRAINT `Song_ibfk_1` FOREIGN KEY (`Album_ID`) REFERENCES `Album` (`Album_ID`),
-  ADD CONSTRAINT `Song_ibfk_2` FOREIGN KEY (`Artist_ID`) REFERENCES `Artist` (`Artist_ID`),
-  ADD CONSTRAINT `Song_ibfk_3` FOREIGN KEY (`Language`) REFERENCES `Decode_Child` (`Decode_ChildID`),
-  ADD CONSTRAINT `Song_ibfk_4` FOREIGN KEY (`Genre`) REFERENCES `Decode_Child` (`Decode_ChildID`);
-
---
--- Constraints for table `User`
---
-ALTER TABLE `User`
-  ADD CONSTRAINT `User_ibfk_1` FOREIGN KEY (`SubscriptionType`) REFERENCES `Decode_Child` (`Decode_ChildID`),
-  ADD CONSTRAINT `User_ibfk_2` FOREIGN KEY (`Gender`) REFERENCES `Decode_Child` (`Decode_ChildID`),
-  ADD CONSTRAINT `User_ibfk_3` FOREIGN KEY (`Location`) REFERENCES `Decode_Child` (`Decode_ChildID`);
+ALTER TABLE `user`
+  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
